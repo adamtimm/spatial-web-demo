@@ -24,7 +24,7 @@
  */
 
 const urlBase = process.env.NODE_ENV === 'production'
-  ? 'http://rest-services-scfire.openshift-pousty-apps.gce-containers.crunchydata.com'
+  ? 'http://spatial-rest-services-spatial.openshift-gis-apps.gce-containers.crunchydata.com'
   : '';
 
 /** Parcel search functions */
