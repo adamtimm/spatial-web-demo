@@ -33,8 +33,8 @@ const CLR = {
   selectedFill: '#8532a830',
 };
 
-const URL_BASE_SC = 'http://openmaptile-spatial.openshift-gis-apps.gce-containers.crunchydata.com/ ';
-const URL_DATA_SC = 'http://pgtileserv-spatial.openshift-gis-apps.gce-containers.crunchydata.com/';
+const URL_BASE_SC = 'http://openmaptile-spatial.openshift-gis-apps.gce-containers.crunchydata.com';
+const URL_DATA_SC = 'http://pgtileserv-spatial.openshift-gis-apps.gce-containers.crunchydata.com';
 
 const URL = {
   base: URL_BASE_SC,
@@ -187,7 +187,7 @@ export default function CrunchyMap(props) {
 }
 
 async function fetchGlStyle() {
-  const response = await fetch(`${URL.base}/styles/osm-bright/style.json`);
+  const response = await fetch(`${URL.base}/styles/positron/style.json`);
   return response.json();
 }
 
