@@ -89,8 +89,8 @@ export default function CrunchyMap(props) {
     source: new VectorTileSource({
       format: new MVT(),
       url: `${URL.data}/groot.assessor_parcels/{z}/{x}/{y}.pbf`,
-      minZoom: 16,
-      maxZoom: 16,
+      minZoom: 0,
+      maxZoom: 20,
     }),
   });
   const layerSelect = new VectorLayer({
@@ -120,7 +120,7 @@ export default function CrunchyMap(props) {
     const features = map.getFeaturesAtPixel(evt.pixel);
     const feature = features ? features[0] : null;
 
-    if (!feature || feature.get('layer') !== 'parcels') {
+    if (!feature || feature.get('layer') !== 'groot.assesor_parcels') {
       return;
     }
 
@@ -144,7 +144,7 @@ export default function CrunchyMap(props) {
         const pixel = map.getPixelFromCoordinate(coordinate);
         const features = map.getFeaturesAtPixel(pixel);
         const feature = features && features[0];
-        if (feature && feature.get('layer') === 'parcels') {
+        if (feature && feature.get('layer') === 'groot.assesor_parcels') {
           const parcel = parcelFromFeature(feature);
           onParcelClick(parcel);
         }
