@@ -1,0 +1,9 @@
+.pageHeader {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.pageHeader p {
+  font-size: 2.75rem;
+}

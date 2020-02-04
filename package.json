@@ -1,0 +1,42 @@
+{
+  "name": "spatial-suite",
+  "version": "0.1.0",
+  "private": false,
+  "proxy": "http://spatial-demo-web-app-spatial.openshift-gis-apps.gce-containers.crunchydata.com/",
+  "dependencies": {
+    "@patternfly/react-core": "^3.112.3",
+    "@patternfly/react-icons": "^3.14.12",
+    "@patternfly/react-table": "^2.24.22",
+    "node-sass": "^4.13.1",
+    "ol": "^6.0.1",
+    "ol-mapbox-style": "^5.0.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-scripts": "^3.3.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "serve": "npm run build && npx http-server ./build"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-react-app": "^5.0.2"
+  }
+}
