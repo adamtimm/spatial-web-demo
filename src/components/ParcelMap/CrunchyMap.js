@@ -120,7 +120,7 @@ export default function CrunchyMap(props) {
     const features = map.getFeaturesAtPixel(evt.pixel);
     const feature = features ? features[0] : null;
 
-    if (!feature || feature.get('layer') !== 'groot.assesor_parcels') {
+    if (!feature || feature.get('layer') !== 'parcels') {
       return;
     }
 
@@ -144,7 +144,7 @@ export default function CrunchyMap(props) {
         const pixel = map.getPixelFromCoordinate(coordinate);
         const features = map.getFeaturesAtPixel(pixel);
         const feature = features && features[0];
-        if (feature && feature.get('layer') === 'groot.assesor_parcels') {
+        if (feature && feature.get('layer') === 'parcels') {
           const parcel = parcelFromFeature(feature);
           onParcelClick(parcel);
         }
@@ -187,7 +187,7 @@ export default function CrunchyMap(props) {
 }
 
 async function fetchGlStyle() {
-  const response = await fetch(`${URL.base}/styles/positron/style.json`);
+  const response = await fetch(`${URL.base}/styles/osm-bright/style.json`);
   return response.json();
 }
 
