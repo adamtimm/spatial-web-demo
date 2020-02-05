@@ -24,6 +24,7 @@
  */
 
 const urlBase = 'http://spatial-rest-services-spatial.openshift-gis-apps.gce-containers.crunchydata.com';
+const urlPg_Fs = 'http://pgfeatureserv-spatial.openshift-gis-apps.gce-containers.crunchydata.com';
 
 /** Parcel search functions */
 const api = {
@@ -45,6 +46,7 @@ const api = {
     /**
      * Sends an API request to search parcels by distance
      * @param {number | string} parcelId
+     * @param {number | string} gid
      * @param {number | string} distance
      * @returns {Promise<Array<SurroundingParcel>>}
      */
@@ -57,10 +59,11 @@ const api = {
     /**
      * Sends an API request to get the firehazard status
      * @param {number | string} parcelId
+     * @param {number | string} gid
      * @returns {Promise<boolean>}
      */
-    async getFireHazardStatus(parcelId) {
-      const url = `${urlBase}/parcel/firehazard/${parcelId}`;
+    async getFireHazardStatus(gid) {
+      const url = `${urlPg_Fs}/collections/groot.assessor_parcels/items/30634?properties=${gid},fireHazard`;
       const response = await fetch(url);
       const json = await response.json();
       const isFireHazard = json.firehazard === 'Yes';
