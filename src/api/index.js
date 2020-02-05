@@ -49,8 +49,9 @@ const api = {
      * @param {number | string} distance
      * @returns {Promise<Array<SurroundingParcel>>}
      */
-    async getSurroundingParcels(parcelId, distance) {
-      const url = `${urlBase}/notify/parcel-and-distance?parcelid=${parcelId}&dist=${distance}`;
+    async getSurroundingParcels(gid, distance) {
+      const url = `${urlPg_Fs}/functions/parcels_dist/items?in_gid=${gid}&dist=${distance}&limit=1000`
+      //const url = `${urlBase}/notify/parcel-and-distance?parcelid=${parcelId}&dist=${distance}`;
       const response = await fetch(url);
       const json = await response.json();
       return json;
@@ -72,7 +73,12 @@ const api = {
      * @param {number | string} parcelId
      * @param {boolean} isFireHazard
      */
-    async setFireHazardStatus(parcelId, isFireHazard) {
+    async setFireHazardStatus(gid, isFireHazard) {
+      let firehaz = isFireHazard ? 'Y' : 'N';
+      const url = `${urlPg_Fs}/functions/set_parcel_firehazard/items?in_gid=${gid}&in_hazard=${firehaz}`;
+      await fetch(url);
+    },
+    async setFireHazardStatusOLD(parcelId, isFireHazard) {
       const url = `${urlBase}/parcel/firehazard/${parcelId}`;
       const body = { firehazard: isFireHazard ? 'Yes' : 'No' };
       await fetch(url, {
