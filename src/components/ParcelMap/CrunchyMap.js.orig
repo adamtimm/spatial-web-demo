@@ -111,7 +111,7 @@ export default function CrunchyMap(props) {
   selectParcels();
 
   function dataStyle(feature) {
-    if (isHighlighted(feature.get(ATTR_APN))) {
+    if (isHighlighted(feature.id_)) {
       return createStyleHighlight(feature);
     }
     if (feature.get(ATTR_FIREHAZ) === 'Yes') {
@@ -124,11 +124,11 @@ export default function CrunchyMap(props) {
     const features = map.getFeaturesAtPixel(evt.pixel);
     const feature = features ? features[0] : null;
 
-    if (!feature || feature.get('layer') !== 'groot.assessor_parcels') {
+    if (!feature || feature.get('layer') !== 'parcels') {
       return;
     }
 
-    const featid = feature.get(ATTR_APN);
+    const featid = feature.getId();
     highlightParcel(featid, evt.coordinate);
   });
 
@@ -148,7 +148,7 @@ export default function CrunchyMap(props) {
         const pixel = map.getPixelFromCoordinate(coordinate);
         const features = map.getFeaturesAtPixel(pixel);
         const feature = features && features[0];
-        if (feature && feature.get('layer') === 'groot.assessor_parcels') {
+        if (feature && feature.get('layer') === 'parcels') {
           const parcel = parcelFromFeature(feature);
           onParcelClick(parcel);
         }
@@ -214,7 +214,7 @@ function createStyleHighlight(feature) {
       color: 'rgba(255,255,20,1)', width: 3,
     }),
     text: new Text({
-      text: feature.get(ATTR_APN),
+      text: `${feature.id_}`,
       font: '14px sans-serif',
       fill: new Fill({ color: '#000000' }),
     }),
@@ -229,7 +229,7 @@ function createStyleParcel(feature) {
       color: '#007000',
     }),
     text: new Text({
-      text: feature.get(ATTR_APN),
+      text: `${feature.id_}`,
       fill: new Fill({ color: '#007000' }),
     }),
   });
@@ -245,7 +245,7 @@ function createStyleFire(feature) {
       width: 2,
     }),
     text: new Text({
-      text: feature.get(ATTR_APN),
+      text: `${feature.id_}`,
       fill: new Fill({
         color: '#000000',
       }),
@@ -292,7 +292,7 @@ function parseParcelFeatures(data) {
  * @returns {ParcelFromMap}
  */
 function parcelFromFeature(feature) {
-  const id = feature.get(ATTR_APN);
+  const id = feature.getId().toString();
   const apn = feature.get(ATTR_APN);
   const isFireHazard = feature.get(ATTR_FIREHAZ) === 'Yes';
 

@@ -23,9 +23,7 @@
  * @property {number} parcelid
  */
 
-const urlBase = process.env.NODE_ENV === 'production'
-  ? 'http://spatial-rest-services-spatial.openshift-gis-apps.gce-containers.crunchydata.com'
-  : '';
+const urlBase = 'http://spatial-rest-services-spatial.openshift-gis-apps.gce-containers.crunchydata.com';
 
 /** Parcel search functions */
 const api = {
