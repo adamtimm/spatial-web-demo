@@ -60,11 +60,11 @@ const api = {
      * @param {number | string} parcelId
      * @returns {Promise<boolean>}
      */
-    async getFireHazardStatus(parcelId) {
-      const url = `${urlPg_Fs}/collections/groot.assessor_parcels/items/30634?properties=${parcelId},fireHazard`;
+    async getFireHazardStatus(gid) {
+      const url = `${urlPg_Fs}/collections/groot.assessor_parcels/items/${gid}?properties=gid,fireHazard`;
       const response = await fetch(url);
       const json = await response.json();
-      const isFireHazard = json.firehazard === 'Yes';
+      const isFireHazard = json.properties.firehazard === 'Yes';
       return isFireHazard;
     },
     /**
