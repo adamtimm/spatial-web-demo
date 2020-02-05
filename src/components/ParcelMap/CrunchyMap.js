@@ -35,12 +35,10 @@ const CLR = {
 
 const URL_BASE_SC = 'http://openmaptile-spatial.openshift-gis-apps.gce-containers.crunchydata.com';
 const URL_DATA_SC = 'http://pgtileserv-spatial.openshift-gis-apps.gce-containers.crunchydata.com';
-const URL_FEATURE_SC = 'http://pgfeatureserv-spatial.openshift-gis-apps.gce-containers.crunchydata.com';
 
 const URL = {
   base: URL_BASE_SC,
   data: URL_DATA_SC,
-  feature: URL_FEATURE_SC,
 };
 
 /**
@@ -98,8 +96,6 @@ export default function CrunchyMap(props) {
   const layerSelect = new VectorLayer({
     style: createStyleSelected,
     source: new VectorSource({
-      format: new VectorLayer(),
-      url: '${URL.feature}/collections/groot.assessor_parcels.json',
       features: [],
     }),
   });
@@ -124,7 +120,7 @@ export default function CrunchyMap(props) {
     const features = map.getFeaturesAtPixel(evt.pixel);
     const feature = features ? features[0] : null;
 
-    if (!feature || feature.get('layer') !== 'groot.assessor_parcels') {
+    if (!feature || feature.get('layer') !== 'parcels') {
       return;
     }
 
@@ -148,7 +144,7 @@ export default function CrunchyMap(props) {
         const pixel = map.getPixelFromCoordinate(coordinate);
         const features = map.getFeaturesAtPixel(pixel);
         const feature = features && features[0];
-        if (feature && feature.get('layer') === 'groot.assessor_parcels') {
+        if (feature && feature.get('layer') === 'parcels') {
           const parcel = parcelFromFeature(feature);
           onParcelClick(parcel);
         }
