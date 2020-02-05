@@ -28,6 +28,7 @@ const MAP_CENTER = [-122.0283, 37.0405];
 const MAP_ZOOM = 16;
 const ATTR_APN = 'apn';
 const ATTR_FIREHAZ = 'firehazard';
+const LYR_PARCELS = 'groot.assessor_parcels';
 const CLR = {
   selectedStroke: '#8532a8',
   selectedFill: '#8532a830',
@@ -120,7 +121,7 @@ export default function CrunchyMap(props) {
     const features = map.getFeaturesAtPixel(evt.pixel);
     const feature = features ? features[0] : null;
 
-    if (!feature || feature.get('layer') !== 'parcels') {
+    if (!feature || feature.get('layer') !== LYR_PARCELS) {
       return;
     }
 
@@ -144,7 +145,7 @@ export default function CrunchyMap(props) {
         const pixel = map.getPixelFromCoordinate(coordinate);
         const features = map.getFeaturesAtPixel(pixel);
         const feature = features && features[0];
-        if (feature && feature.get('layer') === 'parcels') {
+        if (feature && feature.get('layer') === LYR_PARCELS) {
           const parcel = parcelFromFeature(feature);
           onParcelClick(parcel);
         }
