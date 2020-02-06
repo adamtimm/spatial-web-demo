@@ -69,7 +69,7 @@ export default function CrunchyMap(props) {
     declutter: true,
     source: new VectorTileSource({
       format: new MVT(),
-      url: `${URL.base}/data/v3/{z}/{x}/{y}.pbf`,
+      url: `${URL.base}/data/v3/{z}/{x}/{y}.pbf?properties=gid,apn,firehazard`,
       maxZoom: 14,
     }),
   });
