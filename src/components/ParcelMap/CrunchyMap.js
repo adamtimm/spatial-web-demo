@@ -90,7 +90,7 @@ export default function CrunchyMap(props) {
     minZoom: 15,
     source: new VectorTileSource({
       format: new MVT(),
-      url: `${URL.data}/groot.assessor_parcels/{z}/{x}/{y}.pbf`,
+      url: `${URL.data}/groot.assessor_parcels/{z}/{x}/{y}.pbf?properties=gid,apn,firehazard`,
       minZoom: 0,
       maxZoom: 20,
     }),
