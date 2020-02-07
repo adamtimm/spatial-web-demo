@@ -69,7 +69,7 @@ export default function CrunchyMap(props) {
     declutter: true,
     source: new VectorTileSource({
       format: new MVT(),
-      url: `${URL.base}/data/v3/{z}/{x}/{y}.pbf?properties=gid,apn,firehazard`,
+      url: `${URL.base}/data/v3/{z}/{x}/{y}.pbf`,
       maxZoom: 14,
     }),
   });
@@ -90,7 +90,7 @@ export default function CrunchyMap(props) {
     minZoom: 15,
     source: new VectorTileSource({
       format: new MVT(),
-      url: `${URL.data}/groot.assessor_parcels/{z}/{x}/{y}.pbf`,
+      url: `${URL.data}/groot.assessor_parcels/{z}/{x}/{y}.pbf?properties=gid,apn,firehazard`,
       minZoom: 0,
       maxZoom: 20,
     }),
