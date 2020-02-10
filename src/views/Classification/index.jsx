@@ -8,7 +8,7 @@ import {
   TextContent,
   Text,
 } from '@patternfly/react-core';
-import AddressSearch from 'components/AddressSearch';
+//import AddressSearch from 'components/AddressSearch';
 import ParcelMap from 'components/ParcelMap';
 import FormHeading from 'components/FormHeading';
 import useAddressSearchStore from 'components/AddressSearch/useAddressSearchStore';
@@ -29,7 +29,7 @@ const parcelFromMapInitialState = null;
 
 const ChooseParcelText = () => (
   <TextContent>
-    <Text>Please search for a specific address or select a parcel from the map.</Text>
+    <Text>Please select a parcel from the map.</Text>
   </TextContent>
 );
 
@@ -93,10 +93,10 @@ const Classification = () => {
             // Otherwise, show the address search form.
             parcelFromMap
               ? <ParcelDetails parcelFromMap={parcelFromMap} />
-              : <AddressSearch store={addressSearchStore} />
+              : < emty text/>
           }
           {
-          (parcelFromMap || addressSearchStore.searchResult)
+          (parcelFromMap)
             ? (
               <ClassificationForm
                 onCancelButtonClick={handleCancelButtonClick}
