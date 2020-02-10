@@ -29,7 +29,7 @@ const parcelFromMapInitialState = null;
 
 const ChooseParcelText = () => (
   <TextContent>
-    <Text>Please search for a specific address or select a parcel from the map.</Text>
+    <Text>Please select a parcel from the map.</Text>
   </TextContent>
 );
 
@@ -91,11 +91,11 @@ const Classification = () => {
           {
             // If there is a parcel selected, show the parcel details.
             // Otherwise, show the address search form.
-            parcelFromMap
-              ? <ParcelDetails parcelFromMap={parcelFromMap} />
-              : <AddressSearch store={addressSearchStore} />
-          }
-          {
+//          parcelFromMap
+//               <ParcelDetails parcelFromMap={parcelFromMap} />
+//              : <AddressSearch store={addressSearchStore} />
+//          }
+//          {
           (parcelFromMap || addressSearchStore.searchResult)
             ? (
               <ClassificationForm
