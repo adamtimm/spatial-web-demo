@@ -14,7 +14,7 @@ import {
   ButtonVariant,
   Form,
 } from '@patternfly/react-core';
-import AddressSearch from 'components/AddressSearch';
+// import AddressSearch from 'components/AddressSearch';
 import ParcelMap from 'components/ParcelMap';
 import useAddressSearchStore from 'components/AddressSearch/useAddressSearchStore';
 import FormHeading from 'components/FormHeading';
@@ -37,7 +37,7 @@ const parcelFromMapInitialState = null;
 
 const ChooseParcelText = () => (
   <TextContent>
-    <Text>Please search for an address or select a parcel to notify.</Text>
+    <Text>Please select a parcel to notify.</Text>
   </TextContent>
 );
 
@@ -181,10 +181,10 @@ const Notification = () => {
             // Otherwise, show the address search form.
             parcelFromMap
               ? <ParcelDetails parcelFromMap={parcelFromMap} />
-              : <AddressSearch store={addressSearchStore} />
+              : < empty text/>
           }
           {
-          (parcelFromMap || addressSearchStore.searchResult)
+          (parcelFromMap)// || addressSearchStore.searchResult)
             ? (
               /** Distance search form */
               <Form onSubmit={distanceSearchStore.handleFormSubmit}>
@@ -206,5 +206,7 @@ const Notification = () => {
     </PageSection>
   );
 };
+
+// unused address searchbar to put back on line 184 if we fix geocoding < AddressSearch store={addressSearchStore} />
 
 export default Notification;
