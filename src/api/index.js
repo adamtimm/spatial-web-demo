@@ -24,7 +24,7 @@
  */
 
 const urlBase = 'http://spatial-rest-services-spatial.openshift-gis-apps.gce-containers.crunchydata.com/';
-const urlPg_Fs = 'http://pgfeatureserv-spatial.openshift-gis-apps.gce-containers.crunchydata.com';
+const urlPg_Fs = 'http://pgfeatureserv-scfire.openshift-gis-apps.gce-containers.crunchydata.com/';
 
 /** Parcel search functions */
 const api = {
