@@ -124,7 +124,7 @@ Service layer: https://github.com/CrunchyData/spatial-suite-rest-demo
 
 ## Deployment
 
-http://frontend-scfire.openshift-pousty-apps.gce-containers.crunchydata.com/
+http://spatialwebdemo-scfire.openshift-gis-apps.gce-containers.crunchydata.com/
 
 ## Learn More
 
