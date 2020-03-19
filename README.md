@@ -131,3 +131,8 @@ http://frontend-scfire.openshift-pousty-apps.gce-containers.crunchydata.com/
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+# Demo
+
+The current version of this demo is hosted in OpenShift 3.11. It is a fictious app designed to simulate a Fire Hazard Management UI. It uses publically avaialbe data from the Santa Cruz, CA County GIS website. It uses [pg_tileserv](https://github.com/CrunchyData/pg_tileserv) to generate vector tiles from the parcel data and [pg_featureserv](https://github.com/CrunchyData/pg_featureserv) to update the dataset and do a distance query.
