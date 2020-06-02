@@ -23,8 +23,8 @@
  * @property {number} parcelid
  */
 
-const urlBase = 'http://spatial-rest-services-spatial.openshift-gis-apps.gce-containers.crunchydata.com/';
-const urlPg_Fs = 'http://pgfeatureserv-scfire.openshift-gis-apps.gce-containers.crunchydata.com';
+const urlBase = 'http://localhost:7800/';
+const urlPg_Fs = 'http://http://localhost:9000';
 
 /** Parcel search functions */
 const api = {
