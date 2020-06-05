@@ -24,7 +24,7 @@
  */
 
 const urlBase = 'http://localhost:7800/';
-const urlPg_Fs = 'http://http://localhost:9000';
+const urlPg_Fs = 'http://localhost:9000';
 
 /** Parcel search functions */
 const api = {
