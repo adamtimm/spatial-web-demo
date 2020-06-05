@@ -1,4 +1,4 @@
-FROM node:10
+FROM node:12
 
 # Create app directory
 WORKDIR /app
@@ -9,7 +9,6 @@ WORKDIR /app
 COPY package.json ./
 COPY package-lock.json ./
 RUN npm install
-RUN npm install react-scripts@3.4.1 -g
 
 # If you are building your code for production
 # RUN npm ci --only=production
