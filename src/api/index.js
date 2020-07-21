@@ -23,8 +23,8 @@
  * @property {number} parcelid
  */
 
-const urlBase = 'http://localhost:7800/';
-const urlPg_Fs = 'http://localhost:9000';
+const urlBase = 'http://0.0.0.0:7800/';
+const urlPg_Fs = 'http://0.0.0.0:9000';
 
 /** Parcel search functions */
 const api = {
