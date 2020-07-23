@@ -35,8 +35,8 @@ const CLR = {
   selectedFill: '#8532a830',
 };
 
-const URL_BASE_SC = 'http://0.0.0.0:8080';
-const URL_DATA_SC = 'http://0.0.0.0:7800';
+const URL_BASE_SC = 'http://sc-tileserver-gl-scfire.openshift-gis-apps.gce-containers.crunchydata.com/:8080';
+const URL_DATA_SC = 'http://pgtileserv-demo.openshift-gis-apps.gce-containers.crunchydata.com/:7800';
 
 const URL = {
   base: URL_BASE_SC,
