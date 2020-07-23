@@ -23,8 +23,8 @@
  * @property {number} parcelid
  */
 
-const urlBase = 'http://pgtileserv-demo.openshift-gis-apps.gce-containers.crunchydata.com/:7800/';
-const urlPg_Fs = 'http://pgfeatureserv-demo.openshift-gis-apps.gce-containers.crunchydata.com :9000';
+const urlBase = 'http://pgtileserv-demo.openshift-gis-apps.gce-containers.crunchydata.com';
+const urlPg_Fs = 'http://pgfeatureserv-demo.openshift-gis-apps.gce-containers.crunchydata.com';
 
 /** Parcel search functions */
 const api = {
