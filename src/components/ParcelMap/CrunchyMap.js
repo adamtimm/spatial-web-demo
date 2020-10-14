@@ -35,8 +35,8 @@ const CLR = {
   selectedFill: '#8532a830',
 };
 
-const URL_BASE_SC = 'http://http://sc-tileserver-gl-demo.apps.ocp4-timm.gce-containers.crunchydata.com/';
-const URL_DATA_SC = 'http://http://pgtileserv-demo.apps.ocp4-timm.gce-containers.crunchydata.com/';
+const URL_BASE_SC = 'http://sc-tileserver-gl-demo.apps.ocp4-timm.gce-containers.crunchydata.com';
+const URL_DATA_SC = 'http://pgtileserv-demo.apps.ocp4-timm.gce-containers.crunchydata.com';
 
 const URL = {
   base: URL_BASE_SC,
