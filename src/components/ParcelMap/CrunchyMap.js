@@ -1,7 +1,7 @@
 import { fromLonLat } from 'ol/proj';
 import Map from 'ol/Map';
 import MVT from 'ol/format/MVT';
-import stylefunction from 'ol-mapbox-style/stylefunction';
+import stylefunction from 'ol-mapbox-style/dist/stylefunction';
 import VectorTileLayer from 'ol/layer/VectorTile';
 import VectorTileSource from 'ol/source/VectorTile';
 import VectorLayer from 'ol/layer/Vector';
