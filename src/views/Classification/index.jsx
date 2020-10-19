@@ -90,13 +90,10 @@ const Classification = () => {
           <FormHeading>Fire Hazard Classification</FormHeading>
           {
             // If there is a parcel selected, show the parcel details.
-            // Otherwise, show the address search form.
-            parcelFromMap
-              ? <ParcelDetails parcelFromMap={parcelFromMap} />
-              : < emty text/>
+            parcelFromMap && <ParcelDetails parcelFromMap={parcelFromMap} />
           }
           {
-          (parcelFromMap)
+          parcelFromMap
             ? (
               <ClassificationForm
                 onCancelButtonClick={handleCancelButtonClick}
