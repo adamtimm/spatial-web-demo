@@ -23,8 +23,8 @@
  * @property {number} parcelid
  */
 
-const urlBase = 'http://spatial-rest-services-spatial.openshift-gis-apps.gce-containers.crunchydata.com/';
-const urlPg_Fs = 'http://pgfeatureserv-scfire.openshift-gis-apps.gce-containers.crunchydata.com';
+const urlBase = 'http://spatial-rest-services-spatial.openshift-gis-apps.gce-containers.crunchydata.com';
+const urlPg_Fs = 'http://pgfeatureserv-demo.apps.ocp4-timm.gce-containers.crunchydata.com';
 
 /** Parcel search functions */
 const api = {
@@ -46,20 +46,19 @@ const api = {
     /**
      * Sends an API request to search parcels by distance
      * @param {number | string} pid
-
      * @param {number | string} distance
      * @returns {Promise<Array<SurroundingParcel>>}
      */
-<<<<<<< HEAD
     async getSurroundingParcels(pid, distance) {
       const url = `${urlPg_Fs}/functions/parcels_dist/items?in_gid=${pid}&dist=${distance}&limit=1000`
             const response = await fetch(url);
-=======
-    async getSurroundingParcels(gid, distance) {
-      const url = `${urlPg_Fs}/functions/parcel_withindist/items?pid=${gid}&dist=${distance}&limit=1000`
-      //const url = `${urlBase}/notify/parcel-and-distance?parcelid=${parcelId}&dist=${distance}`;
+     * @param {number | string} distance
+     * @returns {Promise<Array<SurroundingParcel>>}
+     */
+    async getSurroundingParcels(pid, distance) {
+      const url = `${urlPg_Fs}/functions/parcel_withindist/items?pid=${pid}&dist=${distance}&limit=1000`
       const response = await fetch(url);
->>>>>>> 7afdc5815e4b19ebc5ee983b5fad338732b655b9
+
       const json = await response.json();
       return json;
     },
@@ -69,7 +68,7 @@ const api = {
      * @returns {Promise<boolean>}
      */
     async getFireHazardStatus(pid) {
-      const url = `${urlPg_Fs}/collections/groot.assessor_parcels/items/${pid}?properties=fireHazard`;
+      const url = `${urlPg_Fs}/collections/groot.assessor_parcels/items/${pid}?properties=pid,fireHazard`;
       const response = await fetch(url);
       const json = await response.json();
       const isFireHazard = json.properties.firehazard === 'Yes';
@@ -78,10 +77,11 @@ const api = {
     /**
      * Sends an API request to set the firehazard status
      * @param {number | string} pid
-
      * @param {boolean} isFireHazard
      */
   async setFireHazardStatus(pid, isFireHazard) {
+     * @param {boolean} isFireHazard
+     */
       let firehaz = isFireHazard ? 'Y' : 'N';
       const url = `${urlPg_Fs}/functions/parcel_set_firehazard/items?pid=${pid}&is_hazard=${firehaz}`;
       await fetch(url);

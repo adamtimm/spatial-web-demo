@@ -178,10 +178,7 @@ const Notification = () => {
           <FormHeading>Active Fire Notification</FormHeading>
           {
             // If there is a parcel selected, show the parcel details.
-            // Otherwise, show the address search form.
-            parcelFromMap
-              ? <ParcelDetails parcelFromMap={parcelFromMap} />
-              : < empty text/>
+            parcelFromMap && <ParcelDetails parcelFromMap={parcelFromMap} />
           }
           {
           (parcelFromMap)// || addressSearchStore.searchResult)
