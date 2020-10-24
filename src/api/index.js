@@ -52,6 +52,7 @@ const api = {
     async getSurroundingParcels(pid, distance) {
       const url = `${urlPg_Fs}/functions/parcel_withindist/items?pid=${pid}&dist=${distance}&limit=1000`
       const response = await fetch(url);
+
       const json = await response.json();
       return json;
     },
@@ -61,6 +62,7 @@ const api = {
      * @returns {Promise<boolean>}
      */
     async getFireHazardStatus(pid) {
+
       const url = `${urlPg_Fs}/collections/groot.assessor_parcels/items/${pid}?properties=apn,fireHazard`;
       const response = await fetch(url);
       const json = await response.json();
