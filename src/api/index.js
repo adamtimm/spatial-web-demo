@@ -49,12 +49,7 @@ const api = {
      * @param {number | string} distance
      * @returns {Promise<Array<SurroundingParcel>>}
      */
-    async getSurroundingParcels(pid, distance) {
-      const url = `${urlPg_Fs}/functions/parcels_dist/items?in_gid=${pid}&dist=${distance}&limit=1000`
-            const response = await fetch(url);
-     * @param {number | string} distance
-     * @returns {Promise<Array<SurroundingParcel>>}
-     */
+
     async getSurroundingParcels(pid, distance) {
       const url = `${urlPg_Fs}/functions/parcel_withindist/items?pid=${pid}&dist=${distance}&limit=1000`
       const response = await fetch(url);
