@@ -1,7 +1,7 @@
 import { fromLonLat } from 'ol/proj';
 import Map from 'ol/Map';
 import MVT from 'ol/format/MVT';
-import stylefunction from 'ol-mapbox-style/stylefunction';
+import stylefunction from 'ol-mapbox-style/dist/stylefunction';
 import VectorTileLayer from 'ol/layer/VectorTile';
 import VectorTileSource from 'ol/source/VectorTile';
 import VectorLayer from 'ol/layer/Vector';
@@ -34,8 +34,8 @@ const CLR = {
   selectedFill: '#8532a830',
 };
 
-const URL_BASE_SC = 'http://sc-tileserver-gl-scfire.openshift-gis-apps.gce-containers.crunchydata.com';
-const URL_DATA_SC = 'http://pgtileserv-scfire.openshift-gis-apps.gce-containers.crunchydata.com';
+const URL_BASE_SC = 'http://sc-tileserver-gl-demo.apps.ocp4-timm.gce-containers.crunchydata.com';
+const URL_DATA_SC = 'http://pgtileserv-demo.apps.ocp4-timm.gce-containers.crunchydata.com';
 
 const URL = {
   base: URL_BASE_SC,
@@ -89,7 +89,7 @@ export default function CrunchyMap(props) {
     minZoom: 15,
     source: new VectorTileSource({
       format: new MVT(),
-      url: `${URL.data}/groot.assessor_parcels/{z}/{x}/{y}.pbf?properties=gid,apn,firehazard`,
+      url: `${URL.data}/groot.assessor_parcels/{z}/{x}/{y}.pbf?properties=apn,firehazard`,
       minZoom: 0,
       maxZoom: 20,
     }),
