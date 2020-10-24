@@ -83,11 +83,7 @@ const api = {
      */
   async setFireHazardStatus(pid, isFireHazard) {
       let firehaz = isFireHazard ? 'Y' : 'N';
-<<<<<<< HEAD
       const url = `${urlPg_Fs}/functions/parcel_set_firehazard/items?pid=${pid}&is_hazard=${firehaz}`;
-=======
-      const url = `${urlPg_Fs}/functions/parcel_set_firehazard/items?pid=${gid}&is_hazard=${firehaz}`;
->>>>>>> 7afdc5815e4b19ebc5ee983b5fad338732b655b9
       await fetch(url);
     },
   },
