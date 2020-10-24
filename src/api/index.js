@@ -45,7 +45,7 @@ const api = {
     },
     /**
      * Sends an API request to search parcels by distance
-     * @param {number | string} parcelId
+     * @param {number | string} pid
      * @param {number | string} distance
      * @returns {Promise<Array<SurroundingParcel>>}
      */
@@ -57,7 +57,7 @@ const api = {
     },
     /**
      * Sends an API request to get the firehazard status
-     * @param {number | string} parcelId
+     * @param {number | string} pid
      * @returns {Promise<boolean>}
      */
     async getFireHazardStatus(pid) {
@@ -69,7 +69,7 @@ const api = {
     },
     /**
      * Sends an API request to set the firehazard status
-     * @param {number | string} parcelId
+     * @param {number | string} pid
      * @param {boolean} isFireHazard
      */
     async setFireHazardStatus(pid, isFireHazard) {
