@@ -45,24 +45,24 @@ const api = {
     },
     /**
      * Sends an API request to search parcels by distance
-     * @param {number | string} parcelId
+     * @param {number | string} pid
+
      * @param {number | string} distance
      * @returns {Promise<Array<SurroundingParcel>>}
      */
-    async getSurroundingParcels(gid, distance) {
-      const url = `${urlPg_Fs}/functions/parcels_dist/items?in_gid=${gid}&dist=${distance}&limit=1000`
-      //const url = `${urlBase}/notify/parcel-and-distance?parcelid=${parcelId}&dist=${distance}`;
-      const response = await fetch(url);
+    async getSurroundingParcels(pid, distance) {
+      const url = `${urlPg_Fs}/functions/parcels_dist/items?in_gid=${pid}&dist=${distance}&limit=1000`
+            const response = await fetch(url);
       const json = await response.json();
       return json;
     },
     /**
      * Sends an API request to get the firehazard status
-     * @param {number | string} parcelId
+     * @param {number | string} pid
      * @returns {Promise<boolean>}
      */
-    async getFireHazardStatus(gid) {
-      const url = `${urlPg_Fs}/collections/groot.assessor_parcels/items/${gid}?properties=gid,fireHazard`;
+    async getFireHazardStatus(pid) {
+      const url = `${urlPg_Fs}/collections/groot.assessor_parcels/items/${pid}?properties=fireHazard`;
       const response = await fetch(url);
       const json = await response.json();
       const isFireHazard = json.properties.firehazard === 'Yes';
@@ -70,12 +70,13 @@ const api = {
     },
     /**
      * Sends an API request to set the firehazard status
-     * @param {number | string} parcelId
+     * @param {number | string} pid
+
      * @param {boolean} isFireHazard
      */
-    async setFireHazardStatus(gid, isFireHazard) {
+  async setFireHazardStatus(pid, isFireHazard) {
       let firehaz = isFireHazard ? 'Y' : 'N';
-      const url = `${urlPg_Fs}/functions/set_parcel_firehazard/items?in_gid=${gid}&in_hazard=${firehaz}`;
+      const url = `${urlPg_Fs}/functions/parcel_set_firehazard/items?pid=${pid}&is_hazard=${firehaz}`;
       await fetch(url);
     },
     async setFireHazardStatusOLD(parcelId, isFireHazard) {

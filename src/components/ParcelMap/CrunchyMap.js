@@ -26,7 +26,6 @@ import { extend } from 'ol/extent';
 
 const MAP_CENTER = [-122.0283, 37.0405];
 const MAP_ZOOM = 16;
-const ATTR_GID = 'gid';
 const ATTR_APN = 'apn';
 const ATTR_FIREHAZ = 'firehazard';
 const LYR_PARCELS = 'groot.assessor_parcels';
@@ -290,11 +289,11 @@ function parseParcelFeatures(data) {
  * @returns {ParcelFromMap}
  */
 function parcelFromFeature(feature) {
-  const id = feature.get(ATTR_GID);
+  const id = feature.getId();
   const apn = feature.get(ATTR_APN);
   const isFireHazard = feature.get(ATTR_FIREHAZ) === 'Yes';
 
-  return { id, apn, isFireHazard };
+  return { id: String(id), apn, isFireHazard };
 }
 
 function layerRefresh(lyr) {
