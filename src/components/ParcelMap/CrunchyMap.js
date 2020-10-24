@@ -26,6 +26,7 @@ import { extend } from 'ol/extent';
 
 const MAP_CENTER = [-122.0283, 37.0405];
 const MAP_ZOOM = 16;
+const ATTR_GID = 'gid';
 const ATTR_APN = 'apn';
 const ATTR_FIREHAZ = 'firehazard';
 const LYR_PARCELS = 'groot.assessor_parcels';
@@ -89,7 +90,7 @@ export default function CrunchyMap(props) {
     minZoom: 15,
     source: new VectorTileSource({
       format: new MVT(),
-      url: `${URL.data}/groot.assessor_parcels/{z}/{x}/{y}.pbf?properties=apn,firehazard`,
+      url: `${URL.data}/groot.assessor_parcels/{z}/{x}/{y}.pbf?properties=gid,apn,firehazard`,
       minZoom: 0,
       maxZoom: 20,
     }),
@@ -289,11 +290,11 @@ function parseParcelFeatures(data) {
  * @returns {ParcelFromMap}
  */
 function parcelFromFeature(feature) {
-const id = feature.getId();
+  const id = feature.get(ATTR_GID);
   const apn = feature.get(ATTR_APN);
   const isFireHazard = feature.get(ATTR_FIREHAZ) === 'Yes';
 
-  return { id: String(id), apn, isFireHazard };
+  return { id, apn, isFireHazard };
 }
 
 function layerRefresh(lyr) {
