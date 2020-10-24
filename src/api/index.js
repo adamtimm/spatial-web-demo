@@ -74,7 +74,7 @@ const api = {
      * @param {number | string} pid
      * @param {boolean} isFireHazard
      */
-  async setFireHazardStatus(pid, isFireHazard) {
+    async setFireHazardStatus(pid, isFireHazard) {
       let firehaz = isFireHazard ? 'Y' : 'N';
       const url = `${urlPg_Fs}/functions/parcel_set_firehazard/items?pid=${pid}&is_hazard=${firehaz}`;
       await fetch(url);
