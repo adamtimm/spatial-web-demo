@@ -49,9 +49,8 @@ const api = {
      * @param {number | string} distance
      * @returns {Promise<Array<SurroundingParcel>>}
      */
-    async getSurroundingParcels(gid, distance) {
-      const url = `${urlPg_Fs}/functions/parcel_withindist/items?pid=${gid}&dist=${distance}&limit=1000`
-      //const url = `${urlBase}/notify/parcel-and-distance?parcelid=${parcelId}&dist=${distance}`;
+    async getSurroundingParcels(pid, distance) {
+      const url = `${urlPg_Fs}/functions/parcel_withindist/items?pid=${pid}&dist=${distance}&limit=1000`
       const response = await fetch(url);
       const json = await response.json();
       return json;
@@ -61,8 +60,8 @@ const api = {
      * @param {number | string} parcelId
      * @returns {Promise<boolean>}
      */
-    async getFireHazardStatus(gid) {
-      const url = `${urlPg_Fs}/collections/groot.assessor_parcels/items/${gid}?properties=gid,fireHazard`;
+    async getFireHazardStatus(pid) {
+      const url = `${urlPg_Fs}/collections/groot.assessor_parcels/items/${pid}?properties=apn,fireHazard`;
       const response = await fetch(url);
       const json = await response.json();
       const isFireHazard = json.properties.firehazard === 'Yes';
@@ -73,9 +72,9 @@ const api = {
      * @param {number | string} parcelId
      * @param {boolean} isFireHazard
      */
-    async setFireHazardStatus(gid, isFireHazard) {
+    async setFireHazardStatus(pid, isFireHazard) {
       let firehaz = isFireHazard ? 'Y' : 'N';
-      const url = `${urlPg_Fs}/functions/parcel_set_firehazard/items?pid=${gid}&is_hazard=${firehaz}`;
+      const url = `${urlPg_Fs}/functions/parcel_set_firehazard/items?pid=${pid}&is_hazard=${firehaz}`;
       await fetch(url);
     },
   },
