@@ -293,7 +293,7 @@ function parcelFromFeature(feature) {
   const apn = feature.get(ATTR_APN);
   const isFireHazard = feature.get(ATTR_FIREHAZ) === 'Yes';
 
-   return { id: String(id), apn, isFireHazard };;
+  return { id: String(id), apn, isFireHazard };
 }
 
 function layerRefresh(lyr) {
