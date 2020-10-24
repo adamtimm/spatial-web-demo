@@ -50,9 +50,16 @@ const api = {
      * @param {number | string} distance
      * @returns {Promise<Array<SurroundingParcel>>}
      */
+<<<<<<< HEAD
     async getSurroundingParcels(pid, distance) {
       const url = `${urlPg_Fs}/functions/parcels_dist/items?in_gid=${pid}&dist=${distance}&limit=1000`
             const response = await fetch(url);
+=======
+    async getSurroundingParcels(gid, distance) {
+      const url = `${urlPg_Fs}/functions/parcel_withindist/items?pid=${gid}&dist=${distance}&limit=1000`
+      //const url = `${urlBase}/notify/parcel-and-distance?parcelid=${parcelId}&dist=${distance}`;
+      const response = await fetch(url);
+>>>>>>> 7afdc5815e4b19ebc5ee983b5fad338732b655b9
       const json = await response.json();
       return json;
     },
@@ -76,19 +83,12 @@ const api = {
      */
   async setFireHazardStatus(pid, isFireHazard) {
       let firehaz = isFireHazard ? 'Y' : 'N';
+<<<<<<< HEAD
       const url = `${urlPg_Fs}/functions/parcel_set_firehazard/items?pid=${pid}&is_hazard=${firehaz}`;
+=======
+      const url = `${urlPg_Fs}/functions/parcel_set_firehazard/items?pid=${gid}&is_hazard=${firehaz}`;
+>>>>>>> 7afdc5815e4b19ebc5ee983b5fad338732b655b9
       await fetch(url);
-    },
-    async setFireHazardStatusOLD(parcelId, isFireHazard) {
-      const url = `${urlBase}/parcel/firehazard/${parcelId}`;
-      const body = { firehazard: isFireHazard ? 'Yes' : 'No' };
-      await fetch(url, {
-        method: 'PUT',
-        body: JSON.stringify(body),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
     },
   },
 };
