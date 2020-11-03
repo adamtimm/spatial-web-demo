@@ -13,6 +13,7 @@ import {
 } from 'ol/style';
 import { extend } from 'ol/extent';
 
+
 /** @typedef {import('ol').MapBrowserEvent} MapBrowserEvent */
 /** @typedef {import('./index').ParcelClickHandler} ParcelClickHandler */
 /** @typedef {import('api').SurroundingParcel} SurroundingParcel */
@@ -34,8 +35,8 @@ const CLR = {
   selectedFill: '#8532a830',
 };
 
-const URL_BASE_SC = 'http://sc-tileserver-gl-demo.apps.ocp4-timm.gce-containers.crunchydata.com';
-const URL_DATA_SC = 'http://pgtileserv-demo.apps.ocp4-timm.gce-containers.crunchydata.com';
+const URL_BASE_SC = {process.env.BASE_MAP};
+const URL_DATA_SC = {process.env.PG_TS};
 
 const URL = {
   base: URL_BASE_SC,
