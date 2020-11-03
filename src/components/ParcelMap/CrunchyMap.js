@@ -35,8 +35,10 @@ const CLR = {
   selectedFill: '#8532a830',
 };
 
+
 const URL_BASE_SC = process.env.REACT_APP_BASE_MAP;
 const URL_DATA_SC = process.env.REACT_APP_PG_TS;
+
 
 const URL = {
   base: URL_BASE_SC,

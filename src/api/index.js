@@ -26,6 +26,7 @@
 const urlBase = process.env.REACT_APP_BASE_MAP;
 const urlPg_Fs = process.env.REACT_APP_PG_FS;
 
+
 /** Parcel search functions */
 const api = {
   parcels: {
@@ -63,7 +64,8 @@ const api = {
      * @returns {Promise<boolean>}
      */
     async getFireHazardStatus(pid) {
-      const url = `${urlPg_Fs}/collections/groot.assessor_parcels/items/${pid}?properties=pid,fireHazard`;
+
+      const url = `${urlPg_Fs}/collections/groot.assessor_parcels/items/${pid}?properties=apn,fireHazard`;
       const response = await fetch(url);
       const json = await response.json();
       const isFireHazard = json.properties.firehazard === 'Yes';
