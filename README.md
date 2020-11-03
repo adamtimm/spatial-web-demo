@@ -136,3 +136,11 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 # Demo
 
 The current version of this demo is hosted in OpenShift 3.11. It is a fictious app designed to simulate a Fire Hazard Management UI. It uses publically avaialbe data from the Santa Cruz, CA County GIS website. It uses [pg_tileserv](https://github.com/CrunchyData/pg_tileserv) to generate vector tiles from the parcel data and [pg_featureserv](https://github.com/CrunchyData/pg_featureserv) to update the dataset and do a distance query.
+
+# Adding basemap, pg_tileserv, pg_featureserv
+
+To add the basemap, pg_tileserv and pg_featureserv to the UI, you can set the environment variables
+
+* REACT_APP_BASE_MAP
+* REACT_APP_PG_TS
+* REACT_APP_PG_FS
