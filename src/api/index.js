@@ -23,8 +23,8 @@
  * @property {number} parcelid
  */
 
-const urlBase = process.env.BASE_MAP;
-const urlPg_Fs = process.env.PG_FS;
+const urlBase = $BASE_MAP;
+const urlPg_Fs = $PG_FS;
 
 /** Parcel search functions */
 const api = {
