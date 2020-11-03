@@ -23,8 +23,9 @@
  * @property {number} parcelid
  */
 
-const urlBase = 'http://spatial-rest-services-spatial.openshift-gis-apps.gce-containers.crunchydata.com';
-const urlPg_Fs = 'http://pgfeatureserv-spatial.apps.ocp4-timm.gce-containers.crunchydata.com';
+const urlBase = process.env.REACT_APP_BASE_MAP;
+const urlPg_Fs = process.env.REACT_APP_PG_FS;
+
 
 /** Parcel search functions */
 const api = {
@@ -49,6 +50,7 @@ const api = {
      * @param {number | string} distance
      * @returns {Promise<Array<SurroundingParcel>>}
      */
+
     async getSurroundingParcels(pid, distance) {
       const url = `${urlPg_Fs}/functions/parcel_withindist/items?pid=${pid}&dist=${distance}&limit=1000`
       const response = await fetch(url);
