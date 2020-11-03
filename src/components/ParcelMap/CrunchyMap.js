@@ -34,7 +34,7 @@ const CLR = {
   selectedStroke: '#8532a8',
   selectedFill: '#8532a830',
 };
-console.log(process.env)
+
 const URL_BASE_SC = process.env.REACT_APP_BASE_MAP;
 const URL_DATA_SC = process.env.REACT_APP_PG_TS;
 
